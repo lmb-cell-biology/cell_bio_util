@@ -42,6 +42,19 @@ EXE = {#'bbmap'     :'bbmap',
        'mgcr'          :os.environ["meanGenomeCoverage"],
        }
 
+def init_app(program_key,file_tag=None):
+  global FILE_TAG
+  global PROGRAM_KEY
+  global LOG_FILE_PATH
+  
+  if file_tag is None:
+    FILE_TAG = '_%s_' % program_key
+  else:
+    FILE_TAG = file_tag
+
+  PROGRAM_KEY   = program_key
+  LOG_FILE_PATH = '%s-out-%s.log' % (PROGRAM_KEY,TEMP_ID)
+  
 
 def get_temp_path(file_path):
   '''Get a temporary path based on some other path or directory'''
