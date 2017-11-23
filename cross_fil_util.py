@@ -12,14 +12,15 @@ import uuid
 QUIET   = False
 LOGGING = False
 
-FILE_TAG = '_cf_' # This tag is used for formatting file names so they can be passed between the various cross_fil programs 
+FILE_TAG = '' # This tag is used for formatting file names so they can be passed between the various programs (e.g., '_cf_')
 
 JAVA = ('java', '-d64', '-Xmx4g') # 4 gigabyte heap size, for GATK, Picard etc.
 
-TEMP_ID = '%s' % uuid.uuid4()
-LOG_FILE_PATH = 'cf-out-%s.log' % TEMP_ID
-LOG_FILE_OBJ = None # Created when needed
-MAX_CORES = multiprocessing.cpu_count()
+PROGRAM_KEY   = '' 
+TEMP_ID       = '%s' % uuid.uuid4()
+LOG_FILE_PATH = '%s-out-%s.log' % (PROGRAM_KEY,TEMP_ID)
+LOG_FILE_OBJ  = None # Created when needed
+MAX_CORES     = multiprocessing.cpu_count()
 
 VCF_LIB_DIR = '/home/tjs23/apps/freebayes/vcflib/bin/'
        
