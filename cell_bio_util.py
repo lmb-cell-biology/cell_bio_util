@@ -22,26 +22,6 @@ LOG_FILE_PATH = '%s-out-%s.log' % (PROGRAM_KEY,TEMP_ID)
 LOG_FILE_OBJ  = None # Created when needed
 MAX_CORES     = multiprocessing.cpu_count()
 
-VCF_LIB_DIR = '/home/tjs23/apps/freebayes/vcflib/bin/'
-       
-EXE = {#'bbmap'     :'bbmap',
-       'bwa'           :'bwa',
-       'bt2'           :'bowtie2',
-       'bedtools'      :'bedtools',
-       'samtools'      :'samtools',
-       'freebayes'     :'freebayes',
-       'vcfcombine'    :'vcfcombine',
-       'vcfuniq'       :'vcfuniq',
-       'vcfstreamsort' :'vcfstreamsort',
-       'vcfoverlay'    :'vcfoverlay',
-       'vcffirstheader':'vcffirstheader',
-       'picard'        :os.environ["PICARD"],
-       'gatk'          :os.environ["GATK"],
-       'snpeff'        :os.environ["SnpEff"],
-       'snpsift'       :os.environ["SnpSift"],
-       'mgcr'          :os.environ["meanGenomeCoverage"],
-       }
-
 def init_app(program_key,file_tag=None):
   global FILE_TAG
   global PROGRAM_KEY
@@ -383,6 +363,3 @@ def parallel_split_job(target_func, split_data, common_args, num_cpu=MAX_CORES, 
     for proc in processes: # Asynchromous wait and no output captured
       proc.join()
 
-  
-for name in EXE:
-  check_exe(EXE[name])
