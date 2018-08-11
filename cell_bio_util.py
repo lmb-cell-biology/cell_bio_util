@@ -152,7 +152,7 @@ def call(cmd_args, stdin=None, stdout=None, stderr=None, verbose=True, wait=True
     stderr = LOG_FILE_OBJ
   
   if wait:
-    subprocess.run(cmd_args, stdin=stdin, stdout=stdout, stderr=stderr, env=env, check=check shell=shell).returncode
+    subprocess.run(cmd_args, stdin=stdin, stdout=stdout, stderr=stderr, env=env, check=check, shell=shell).returncode
    # subprocess.call(cmd_args, stdin=stdin, stdout=stdout, stderr=stderr, env=env, shell=shell)
 
       
