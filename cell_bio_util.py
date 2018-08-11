@@ -156,12 +156,9 @@ def call(cmd_args, stdin=None, stdout=None, stderr=None, verbose=True, wait=True
     stderr = LOG_FILE_OBJ
   
   if wait:
-<<<<<<< HEAD
     subprocess.run(cmd_args, stdin=stdin, stdout=stdout, stderr=stderr, env=env, check=check shell=shell).returncode
-
-
    # subprocess.call(cmd_args, stdin=stdin, stdout=stdout, stderr=stderr, env=env, shell=shell)
->>>>>>> 1c114f0ee0b289c52b90ca359289ecbc0dc74193
+
       
   else:
     subprocess.Popen(cmd_args, stdin=stdin, stdout=stdout, stderr=stderr, env=env, shell=shell)
