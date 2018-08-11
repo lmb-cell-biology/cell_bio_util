@@ -116,7 +116,11 @@ def locate_exe(file_name):
   return None
     
     
-def call(cmd_args, stdin=None, stdout=None, stderr=None, verbose=True, wait=True, path=None,check=True):
+<<<<<<< HEAD
+def call(cmd_args, stdin=None, stdout=None, stderr=None, verbose=True, wait=True, path=None, check=True, shell=False):
+
+
+
   """
   Wrapper for external calls to log and report commands,
   open stdin, stderr and stdout etc.
@@ -134,7 +138,10 @@ def call(cmd_args, stdin=None, stdout=None, stderr=None, verbose=True, wait=True
   
   else:
     env = None # Current environment variables 
-      
+  
+  if shell:
+    cmd_args = ' '.join(cmd_args)
+    
   if stdin and isinstance(stdin, str):
     stdin = open(stdin)
 
@@ -149,11 +156,15 @@ def call(cmd_args, stdin=None, stdout=None, stderr=None, verbose=True, wait=True
     stderr = LOG_FILE_OBJ
   
   if wait:
-    subprocess.run(cmd_args, stdin=stdin, stdout=stdout, stderr=stderr, env=env,check=check).returncode
-    # subprocess.call(cmd_args, stdin=stdin, stdout=stdout, stderr=stderr, env=env)
+<<<<<<< HEAD
+    subprocess.run(cmd_args, stdin=stdin, stdout=stdout, stderr=stderr, env=env, check=check shell=shell).returncode
+
+
+   # subprocess.call(cmd_args, stdin=stdin, stdout=stdout, stderr=stderr, env=env, shell=shell)
+>>>>>>> 1c114f0ee0b289c52b90ca359289ecbc0dc74193
       
   else:
-    subprocess.Popen(cmd_args, stdin=stdin, stdout=stdout, stderr=stderr, env=env)
+    subprocess.Popen(cmd_args, stdin=stdin, stdout=stdout, stderr=stderr, env=env, shell=shell)
   
 
 def open_file(file_path, mode='rU', gzip_exts=('.gz','.gzip')):
