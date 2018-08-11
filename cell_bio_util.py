@@ -114,13 +114,9 @@ def locate_exe(file_name):
       return os.path.join(path, file_name)
 
   return None
-    
-    
-<<<<<<< HEAD
+
+
 def call(cmd_args, stdin=None, stdout=None, stderr=None, verbose=True, wait=True, path=None, check=True, shell=False):
-
-
-
   """
   Wrapper for external calls to log and report commands,
   open stdin, stderr and stdout etc.
