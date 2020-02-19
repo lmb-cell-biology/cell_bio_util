@@ -34,7 +34,8 @@ def init_app(program_key,file_tag=None):
 
   PROGRAM_KEY   = program_key
   LOG_FILE_PATH = '%s-out-%s.log' % (PROGRAM_KEY,TEMP_ID)
-  
+  LOG_FILE_PATH = os.path.join(os.getcwd(), LOG_FILE_PATH) # Log in dir that app was run from as user may not have access to installation
+
 
 def get_temp_path(file_path):
   '''Get a temporary path based on some other path or directory'''
