@@ -92,6 +92,8 @@ def warn(msg, prefix='WARNING'):
 def critical(msg, prefix='FAILURE'):
 
   report('%s: %s' % (prefix, msg))
+  sys.tracebacklimit = None
+  raise Exception
   sys.exit(0)
 
 
